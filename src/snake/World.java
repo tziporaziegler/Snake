@@ -29,13 +29,10 @@ public class World extends JComponent {
 
 	private Random random;
 	private Random random2;
-	private int ran;
-	private int ran2;
 
-	private BufferedImage grassImg;
-	private Image mouseImg;
-	private BufferedImage mouseBuffImg;
-	private BufferedImage bricksImg;
+	private final BufferedImage grassImg;
+	private final Image mouseImg;
+	private final BufferedImage mouseBuffImg;
 
 	private TexturePaint tp;
 	private Font scoreFont;
@@ -61,7 +58,7 @@ public class World extends JComponent {
 		grassImg = ImageIO.read(getClass().getResource("pics/grass.jpg"));
 		mouseImg = new ImageIcon(getClass().getResource("pics/mouse2.gif")).getImage();
 		mouseBuffImg = ImageIO.read(getClass().getResource("pics/mouse2.gif"));
-		bricksImg = ImageIO.read(getClass().getResource("pics/bricks.jpeg"));
+		final BufferedImage bricksImg = ImageIO.read(getClass().getResource("pics/bricks.jpeg"));
 
 		// create items used by graphics so don't recreate them by each repaint
 		tp = new TexturePaint(bricksImg, new Rectangle(0, 0, 40, 40));
@@ -77,7 +74,7 @@ public class World extends JComponent {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		Graphics2D g2 = (Graphics2D) g;
+		final Graphics2D g2 = (Graphics2D) g;
 
 		// draw patterned brick border
 		g2.setStroke(basic);
@@ -127,10 +124,10 @@ public class World extends JComponent {
 	}
 
 	public void nextMove() throws InterruptedException {
-		Point newPoint = snake.getNext();
-		String pointCode = newPoint.getCode();
-		int pointHor = newPoint.getHor();
-		int pointVer = newPoint.getVer();
+		final Point newPoint = snake.getNext();
+		final String pointCode = newPoint.getCode();
+		final int pointHor = newPoint.getHor();
+		final int pointVer = newPoint.getVer();
 
 		// get out if snake bumps into self or a wall
 		if (snake.getOccupiedList().contains(pointCode) || pointHor < 10 || pointHor > 700 || pointVer < 10
@@ -156,8 +153,8 @@ public class World extends JComponent {
 	// randomly generate new food - position cannot currently be occupied by snake
 	private void generateFood() {
 		do {
-			ran = random.nextInt(35);
-			ran2 = random2.nextInt(24);
+			final int ran = random.nextInt(35);
+			final int ran2 = random2.nextInt(24);
 			food = new Point(ran * 20 + 10, ran2 * 20 + 10);
 			foodCode = food.getCode();
 		} while (snake.getOccupiedList().contains(foodCode));

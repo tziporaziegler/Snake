@@ -61,8 +61,8 @@ public class SnakeFrame extends JFrame implements KeyListener {
 	}
 
 	private void getSpeed() {
-		String[] options = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-		int level = JOptionPane.showOptionDialog(null, "Choose a level from 1-10:", "Choose a Level",
+		final String[] options = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+		final int level = JOptionPane.showOptionDialog(null, "Choose a level from 1-10:", "Choose a Level",
 				JOptionPane.CLOSED_OPTION, JOptionPane.CLOSED_OPTION, null, options, options);
 		switch (level) {
 			case 0:
@@ -104,7 +104,7 @@ public class SnakeFrame extends JFrame implements KeyListener {
 	// FIXME if quickly press two keys, does both actions before moving forward
 	@Override
 	public void keyPressed(KeyEvent e) {
-		int keyCode = e.getKeyCode();
+		final int keyCode = e.getKeyCode();
 		switch (keyCode) {
 			case KeyEvent.VK_UP:
 			case KeyEvent.VK_8:

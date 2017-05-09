@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 
 public class PauseDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
-	private JLabel label;
 
 	public PauseDialog(SnakeFrame frame) {
 		// TODO don't want to to be on top if entire game is not in focus/minimized
@@ -21,7 +20,7 @@ public class PauseDialog extends JDialog {
 		setLocationRelativeTo(null);
 		setUndecorated(true);
 
-		label = new JLabel("PAUSED");
+		final JLabel label = new JLabel("PAUSED");
 		label.setHorizontalAlignment(JLabel.CENTER);
 		label.setFont(new Font("Traveling _Typewriter", Font.PLAIN, 40));
 		add(label);

@@ -7,6 +7,12 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class Snake {
 
+	/**
+	 * Add private constructor to prevent initialization.
+	 */
+	private Snake() {
+	}
+
 	public static void main(String[] args) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());

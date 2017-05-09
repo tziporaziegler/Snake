@@ -9,6 +9,7 @@ Features include:
 
 - Advanced Graphics2D board design and textures
 - 10 different speed levels
+- Pause setting
 - Score count
 
 ## How to Play

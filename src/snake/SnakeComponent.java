@@ -35,7 +35,7 @@ public class SnakeComponent {
 		hor = -10;
 		ver = 250;
 		for (int i = 0; i < 3; i++) {
-			Point point = new Point(hor += 20, ver);
+			final Point point = new Point(hor += 20, ver);
 			queue.enqueue(point);
 			occupiedList.add(point.getCode());
 		}
@@ -50,10 +50,10 @@ public class SnakeComponent {
 	}
 
 	protected void draw(Graphics g) {
-		Enumeration<Point> elements = queue.elements();
+		final Enumeration<Point> elements = queue.elements();
 		int i = 0;
 		while (elements.hasMoreElements()) {
-			Point point = elements.nextElement();
+			final Point point = elements.nextElement();
 
 			// draw head
 			if (i == 0) {
@@ -62,19 +62,19 @@ public class SnakeComponent {
 					case 2: {
 						degrees = 90;
 					}
-					break;
+						break;
 					case 4: {
 						degrees = 180;
 					}
-					break;
+						break;
 					case 8: {
 						degrees = -90;
 					}
-					break;
+						break;
 				}
-				AffineTransform tx = AffineTransform.getRotateInstance(Math.toRadians(degrees), head.getWidth() / 2,
-						head.getHeight() / 2);
-				AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
+				final AffineTransform tx = AffineTransform.getRotateInstance(Math.toRadians(degrees),
+						head.getWidth() / 2, head.getHeight() / 2);
+				final AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 				g.drawImage(op.filter(head, null), point.getHor(), point.getVer(), 20, 20, null);
 			}
 
@@ -94,22 +94,22 @@ public class SnakeComponent {
 		switch (direction) {
 			case 2: // move down
 				newPoint = new Point(hor, ver += 20);
-			break;
+				break;
 			case 4: // move left
 				newPoint = new Point(hor -= 20, ver);
-			break;
+				break;
 			case 6: // move right
 				newPoint = new Point(hor += 20, ver);
-			break;
+				break;
 			case 8: // move up
 				newPoint = new Point(hor, ver -= 20);
-			break;
+				break;
 		}
 		return newPoint;
 	}
 
 	public void moveFoward() throws InterruptedException {
-		Point oldPoint = queue.dequeue();
+		final Point oldPoint = queue.dequeue();
 		occupiedList.remove(oldPoint.getCode());
 		grow();
 	}
@@ -128,7 +128,7 @@ public class SnakeComponent {
 					goingVer = true;
 					goingHor = false;
 				}
-			break;
+				break;
 			case 4:
 			case 6:
 				if (!goingHor) {
@@ -136,7 +136,7 @@ public class SnakeComponent {
 					goingVer = false;
 					goingHor = true;
 				}
-			break;
+				break;
 		}
 	}
 
