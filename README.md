@@ -1,8 +1,9 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d9e112b4069b41359bdecaecd23ccf1e)](https://www.codacy.com/app/tziporaziegler/Snake?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tziporaziegler/Snake&amp;utm_campaign=Badge_Grade)
 [![Code Climate](https://codeclimate.com/github/tziporaziegler/Snake/badges/gpa.svg)](https://codeclimate.com/github/tziporaziegler/Snake)
 
 # Snake
 
-An enhanced version of the classic Snake game.
+A Java Swing based enhanced version of the classic Snake game.
 
 Features include:
 
@@ -13,6 +14,7 @@ Features include:
 ## How to Play
 
 Use the arrow or number keys to navigate the snake through the field of grass.
+
 The goal is to swallow as many mice as possible.
 Each time a mouse is eaten, the snake grows by one box. A new mouse then appears in a different position.
 You lose if you bump into a wall or a space that is already occupied by the snake.
